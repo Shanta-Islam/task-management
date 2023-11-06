@@ -17,20 +17,20 @@ const Header = () => {
     }
     const links = <>
         <li><NavLink to="/" className={({ isActive, isPending }) =>
-            isPending ? "pending" : isActive ? "hover:bg-cyan-600 bg-cyan-600 hover:text-white text-white px-5 py-2 text-md rounded" : "hover:bg-cyan-600 hover:text-white text-white px-5 py-2 mx-2 text-md rounded"}>Home</NavLink></li>
+            isPending ? "pending" : isActive ? " hover:text-white focus:text-white text-white px-5 py-2 text-md rounded bg-transparent underline" : " hover:text-white text-white px-5 py-2 mx-2 text-md rounded"}>Home</NavLink></li>
 
         {
             user ?
 
-                <div className="flex">
+                <div className="xl:flex">
                     <li><NavLink to="/all-assignments" className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "hover:bg-cyan-600 bg-cyan-600 hover:text-white text-white px-5 py-2 text-md rounded" : "hover:bg-cyan-600 hover:text-white text-white px-5  py-2 mx-2 text-md rounded"}>Assignments</NavLink></li>
+                        isPending ? "pending" : isActive ? "hover:text-white focus:text-white text-white px-5 py-2 text-md rounded bg-transparent underline" : " hover:text-white text-white px-5 py-2 mx-2 text-md rounded"}>Assignments</NavLink></li>
                     <li className="mx-2"><NavLink to="/create-assignments" className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "text-white hover:text-white focus:text-white bg-transparent underline" : "text-white hover:text-white"}>Create Assignments</NavLink></li>
+                        isPending ? "pending" : isActive ? "hover:text-white focus:text-white text-white px-5 py-2 text-md rounded bg-transparent underline" : " hover:text-white text-white px-5 py-2 mx-2 text-md rounded"}>Create Assignments</NavLink></li>
                     <li className="mx-3"><NavLink to="/my-assignments" className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "text-white hover:text-white focus:text-white bg-transparent underline" : "text-white hover:text-white"}>My Assignments</NavLink></li>
+                        isPending ? "pending" : isActive ? "hover:text-white focus:text-white text-white px-5 py-2 text-md rounded bg-transparent underline" : " hover:text-white text-white px-5 py-2 mx-2 text-md rounded"}>My Assignments</NavLink></li>
                     <li className="mx-3"><NavLink to="/submitted-assignments" className={({ isActive, isPending }) =>
-                        isPending ? "pending" : isActive ? "text-white hover:text-white focus:text-white bg-transparent underline" : "text-white hover:text-white"}>Submitted Assignments</NavLink></li>
+                        isPending ? "pending" : isActive ? "hover:text-white focus:text-white text-white px-5 py-2 text-md rounded bg-transparent underline" : " hover:text-white text-white px-5 py-2 mx-2 text-md rounded"}>Submitted Assignments</NavLink></li>
 
                 </div>
                 :
@@ -57,18 +57,6 @@ const Header = () => {
     //     document.querySelector("html").setAttribute("data-theme", localTheme);
     // }, [theme]);
 
-    const [headerColor, setHeaderColor] = useState("")
-
-    const listenScrollEvent = () => {
-        window.scrollY > 10
-            ? setHeaderColor("#164863")
-            : setHeaderColor("")
-    }
-    // Similar to componentDidMount and componentDidUpdate:
-    useEffect(() => {
-        window.addEventListener("scroll", listenScrollEvent)
-    })
-
     const [show, setShow] = useState(false);
 
     const showOverlay = () => {
@@ -80,13 +68,13 @@ const Header = () => {
     };
 
     return (
-        <div className="navbar fixed top-0 z-50" style={{ background: headerColor }}>
+        <div className="navbar bg-[#164863] fixed top-0 z-50">
             <div className="navbar-start">
                 <div className="dropdown">
-                    <label tabIndex={0} className="btn btn-ghost lg:hidden">
+                    <label tabIndex={0} className="btn text-white btn-ghost xl:hidden">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                     </label>
-                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 bg-[#164863] shadow rounded-box w-52">
                         {links}
 
                     </ul>
@@ -98,7 +86,7 @@ const Header = () => {
                     : <Link to='/'><a className="normal-case flex gap-2 text-xl lg:text-3xl font-medium text-white"><img src="https://i.ibb.co/Bj9q11D/logo-1.png" alt="" className="w-6 lg:w-10" />eShopHub</a></Link>
                 } */}
             </div>
-            <div className="navbar-center hidden lg:flex">
+            <div className="navbar-center hidden xl:flex">
                 <ul className="menu menu-horizontal px-1">
                     {links}
                 </ul>
