@@ -15,7 +15,7 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
                 <div className="card-actions justify-end">
                     <button onClick={() => deleteAssignment(assignment?._id)} className="btn">Delete</button>
                     <Link to={`/assignment-details/${assignment._id}`} className='btn'>View</Link>
-                    <Link to={`/update/${assignment._id}`} className="btn">Update</Link>
+                    <Link to={`/updated-assignment/${assignment._id}`} className="btn">Update</Link>
                 </div>
             </div>
         </div >
