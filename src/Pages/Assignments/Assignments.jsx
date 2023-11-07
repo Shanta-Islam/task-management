@@ -12,9 +12,9 @@ const Assignments = () => {
         e.preventDefault();
         let arr = [];
         let value = e.target.value;
-        console.log(value);
+       
         allAssignments.filter((singleAssign) => {
-            if (singleAssign.dLevel === value) {
+            if (singleAssign.dLevel == value) {
                 arr.push(singleAssign);
                 return arr;
             }

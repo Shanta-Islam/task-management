@@ -86,9 +86,9 @@ const CreateAssignments = () => {
                         </label>
                         <label className="input-group">
                             <select className="select select-bordered w-full" name='dLevel'>
-                                <option value="easy">Easy</option>
-                                <option value="medium">Medium</option>
-                                <option value="hard">Hard</option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
                             </select>
                         </label>
                     </div>
