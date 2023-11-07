@@ -33,7 +33,7 @@ const UpdatedAssignment = () => {
                 if(data.modifiedCount>0){
                     toast.success('Assignment Updated Successfully')
                 }
-
+                
 
             })
 

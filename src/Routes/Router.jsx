@@ -8,6 +8,8 @@ import CreateAssignments from "../Pages/CreateAssignments/CreateAssignments";
 import AssignmentDetails from "../Pages/AssignmentDetails/AssignmentDetails";
 import SubmittedAssignments from "../Pages/SubmittedAssignments/SubmittedAssignments";
 import UpdatedAssignment from "../Pages/UpdatedAssignment/UpdatedAssignment";
+import GiveMarkAssign from "../Pages/GiveMarkAssign/GiveMarkAssign";
+import MyAssignments from "../Pages/MyAssignments/MyAssignments";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -40,7 +42,21 @@ const router = createBrowserRouter([
           path: "/updated-assignment/:id",
           element: <UpdatedAssignment></UpdatedAssignment>,
           loader: ({params})=> fetch(`http://localhost:5000/assignment-details/${params.id}`)
+        },
+        {
+          path: "/giveMark/:id",
+          element: <GiveMarkAssign></GiveMarkAssign>,
+          loader: ({params})=> fetch(`http://localhost:5000/submitted-assignment/${params.id}`)
+          
+        },
+        {
+          path: "/my-assignments",
+          element: <MyAssignments></MyAssignments>,
+         
+          
         }
+        
+        
         
         
       ],

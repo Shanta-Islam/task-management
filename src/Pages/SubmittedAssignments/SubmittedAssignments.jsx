@@ -1,14 +1,11 @@
 import { useState } from "react";
 import { Toaster } from "react-hot-toast";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 
 const SubmittedAssignments = () => {
     const assignments = useLoaderData();
     const [assignment, setAssignment] = useState(assignments);
-    const handleGiveMark = ()=>{
-
-    }
     return (
         <div className="p-20">
             <h2 className="text-center">Submitted Assignments: {assignments.length}</h2>
@@ -32,8 +29,8 @@ const SubmittedAssignments = () => {
                                 <td>{singleA?.assignmentMarks}</td>
                                 <td>{singleA?.examineeName}</td>
                                 <td>
-                                    <button
-                                        onClick={() => handleGiveMark(item?._id)} className="btn">Give Mark</button>
+                                    <Link to={`/giveMark/${singleA?._id}`}><button
+                                         className="btn">Give Mark</button></Link>
                                 </td>
                             </tr>)
                         }
