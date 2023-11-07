@@ -1,9 +1,29 @@
-import toast from "react-hot-toast";
+
 import { useLoaderData } from "react-router-dom";
 
 const GiveMarkAssign = () => {
     const acceptAssignmentDetails = useLoaderData();
-    const {assignmentTitle, statusValue, assignmentMarks, email} = acceptAssignmentDetails;
+    const { _id, assignmentTitle, statusValue, assignmentMarks, email } = acceptAssignmentDetails;
+    const handleStatus = id => {
+        fetch(`http://localhost:5000/submitted-assignment/${_id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ statusValue: 'Completed' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                // if (data.modifiedCount > 0) {
+                //     const remaining = assign.filter(a=>a._id !== id);
+                //     setAssign(remaining);
+                // }
+                
+            })
+
+    }
+    // console.log(statusV)
     const handleMarkAssignment = event => {
         event.preventDefault();
         const form = event.target;
@@ -15,25 +35,26 @@ const GiveMarkAssign = () => {
         const marks = assignmentMarks;
 
 
-        const markAssignment = { marks, feedback, ExamineeEmail , assigntitle,status, obtainMarks}
-        // console.log(markAssignment);
-        fetch('http://localhost:5000/marked-assignment', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(markAssignment)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                if (data.insertedId) {
-                    toast.success('Mark Submit Successfully')
-                }
-                form.reset();
-            })
+        const markAssignment = { marks, feedback, ExamineeEmail, assigntitle, status, obtainMarks }
+        console.log(markAssignment);
+        // fetch('http://localhost:5000/marked-assignment', {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(markAssignment)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data);
+        //         if (data.insertedId) {
+        //             toast.success('Mark Submit Successfully')
+        //         }
+        //         form.reset();
+        //     })
 
     }
+
     return (
         <div className="p-20">
             <p>Google drive link: {acceptAssignmentDetails.assignmentPdf}</p>
@@ -57,7 +78,7 @@ const GiveMarkAssign = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Submit" className="btn btn-block" />
+                <input type="submit" onClick={()=>handleStatus(_id)} value="Submit" className="btn btn-block" />
             </form>
         </div>
     );

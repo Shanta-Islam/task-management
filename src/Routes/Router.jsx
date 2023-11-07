@@ -10,6 +10,7 @@ import SubmittedAssignments from "../Pages/SubmittedAssignments/SubmittedAssignm
 import UpdatedAssignment from "../Pages/UpdatedAssignment/UpdatedAssignment";
 import GiveMarkAssign from "../Pages/GiveMarkAssign/GiveMarkAssign";
 import MyAssignments from "../Pages/MyAssignments/MyAssignments";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
     {
       path: "/",
@@ -26,32 +27,32 @@ const router = createBrowserRouter([
         },
         {
           path: "/create-assignments",
-          element: <CreateAssignments></CreateAssignments>
+          element: <PrivateRoute><CreateAssignments></CreateAssignments></PrivateRoute>
         },
         {
           path: "/assignment-details/:id",
-          element: <AssignmentDetails></AssignmentDetails>,
+          element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
           loader: ({params})=> fetch(`http://localhost:5000/assignment-details/${params.id}`)
         },
         {
           path: "/submitted-assignments",
-          element: <SubmittedAssignments></SubmittedAssignments>,
+          element: <PrivateRoute><SubmittedAssignments></SubmittedAssignments></PrivateRoute>,
           loader: ()=> fetch('http://localhost:5000/submitted-assignment')
         },
         {
           path: "/updated-assignment/:id",
-          element: <UpdatedAssignment></UpdatedAssignment>,
+          element: <PrivateRoute><UpdatedAssignment></UpdatedAssignment></PrivateRoute>,
           loader: ({params})=> fetch(`http://localhost:5000/assignment-details/${params.id}`)
         },
         {
           path: "/giveMark/:id",
-          element: <GiveMarkAssign></GiveMarkAssign>,
+          element: <PrivateRoute><GiveMarkAssign></GiveMarkAssign></PrivateRoute>,
           loader: ({params})=> fetch(`http://localhost:5000/submitted-assignment/${params.id}`)
           
         },
         {
           path: "/my-assignments",
-          element: <MyAssignments></MyAssignments>,
+          element: <PrivateRoute><MyAssignments></MyAssignments></PrivateRoute>,
          
           
         }
