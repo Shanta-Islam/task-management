@@ -32,7 +32,7 @@ const MyAssignments = () => {
                             markedAssign && markedAssign.map(item => <tr key={item?._id}>
 
                                 <td>{item?.assigntitle}</td>
-                                <td>{item?.statusValue}</td>
+                                <td>{item?.status==="Pending"? "Completed": ""}</td>
                                 <td>{item?.marks}</td>
                                 <td>{item?.obtainMarks}</td>
                                 <td>{item?.feedback}</td>

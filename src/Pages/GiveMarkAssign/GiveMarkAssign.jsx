@@ -1,9 +1,10 @@
 
+import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
 
 const GiveMarkAssign = () => {
     const acceptAssignmentDetails = useLoaderData();
-    const { _id, assignmentTitle, statusValue, assignmentMarks, email } = acceptAssignmentDetails;
+    const { _id, assignmentTitle,statusValue, assignmentMarks, email } = acceptAssignmentDetails;
     const handleStatus = id => {
         fetch(`http://localhost:5000/submitted-assignment/${_id}`, {
             method: 'PATCH',
@@ -15,10 +16,7 @@ const GiveMarkAssign = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // if (data.modifiedCount > 0) {
-                //     const remaining = assign.filter(a=>a._id !== id);
-                //     setAssign(remaining);
-                // }
+                
                 
             })
 
@@ -37,21 +35,21 @@ const GiveMarkAssign = () => {
 
         const markAssignment = { marks, feedback, ExamineeEmail, assigntitle, status, obtainMarks }
         console.log(markAssignment);
-        // fetch('http://localhost:5000/marked-assignment', {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(markAssignment)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log(data);
-        //         if (data.insertedId) {
-        //             toast.success('Mark Submit Successfully')
-        //         }
-        //         form.reset();
-        //     })
+        fetch('http://localhost:5000/marked-assignment', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(markAssignment)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.insertedId) {
+                    toast.success('Mark Submit Successfully')
+                }
+                form.reset();
+            })
 
     }
 

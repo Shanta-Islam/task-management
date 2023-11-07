@@ -7,7 +7,7 @@ const AssignmentDetails = () => {
     const { user } = useContext(AuthContext);
     const userEmail = user?.email;
     const userName = user?.displayName;
-    const[status, setStatus] = useState('pending');
+    const[status, setStatus] = useState('Pending');
     console.log(userEmail)
     const singleAssignment = useLoaderData();
     const {title, marks} = singleAssignment;

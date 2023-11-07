@@ -11,12 +11,12 @@ const SubmittedAssignments = () => {
     useEffect(() => {
         fetch(url)
             .then(res => res.json())
-            .then(data=>{
-                const remain = data && data.filter(d=>d.statusValue ==="pending")
+            .then(data => {
+                const remain = data && data.filter(d => d.statusValue === "Pending")
                 setAssign(remain);
 
-            }); 
-            
+            });
+
     }, [url])
 
     return (
@@ -25,12 +25,8 @@ const SubmittedAssignments = () => {
                 {
                     assign && assign.map(singleA => <SubmittedAssignmentCard key={singleA._id} singleA={singleA}></SubmittedAssignmentCard>)
                 }
-
             </div>
-
-
-
-        </div >
+        </div>
     );
 };
 
