@@ -24,23 +24,27 @@ const Assignments = () => {
 
     }
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete-assignment/${user?.email}`, {
+        console.log(id)
+        fetch(`http://localhost:5000/delete-assignment/${id}?email=${user?.email}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(data => {
-                if (data.deletedCount > 0) {
+                if(data.message){
+                    toast.error('You Are Not Able to Delete')
+                }
+                else {
                     
                     // remove the user from the UI
                     
-                    const remainingUsers = assignments && assignments.filter(item => item?._id !== id);
+                    const remainingUsers = assignments && assignments.filter(item=>(item._id !== id ));
                     setAssignments(remainingUsers);
                     toast.success('Deleted Successfully');
                    
                 }
-                else{
-                    toast.error('You Are Not Able to Delete')
-                }
+                
+                   
+                
             })
     }
     // console.log(assignments);
