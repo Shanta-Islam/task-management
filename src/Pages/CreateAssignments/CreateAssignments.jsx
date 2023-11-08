@@ -18,7 +18,7 @@ const CreateAssignments = () => {
 
         const newAssignment = { title, desc, marks, photo, dLevel, dateValue, email }
         // console.log(newAssignment);
-        fetch('http://localhost:5000/assignments', {
+        fetch('https://studynest-server.vercel.app/assignments', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

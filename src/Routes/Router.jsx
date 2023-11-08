@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         {
           path: "/all-assignments",
           element: <Assignments></Assignments>,
-          loader: ()=> fetch('http://localhost:5000/assignments')
+          loader: ()=> fetch('https://studynest-server.vercel.app/assignments'),  
         },
         {
           path: "/create-assignments",
@@ -32,22 +32,22 @@ const router = createBrowserRouter([
         {
           path: "/assignment-details/:id",
           element: <PrivateRoute><AssignmentDetails></AssignmentDetails></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/assignment-details/${params.id}`)
+          loader: ({params})=> fetch(`https://studynest-server.vercel.app/assignment-details/${params.id}`)
         },
         {
           path: "/submitted-assignments",
           element: <PrivateRoute><SubmittedAssignments></SubmittedAssignments></PrivateRoute>,
-          loader: ()=> fetch('http://localhost:5000/submitted-assignment')
+          loader: ()=> fetch('https://studynest-server.vercel.app/submitted-assignment')
         },
         {
           path: "/updated-assignment/:id",
           element: <PrivateRoute><UpdatedAssignment></UpdatedAssignment></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/assignment-details/${params.id}`)
+          loader: ({params})=> fetch(`https://studynest-server.vercel.app/assignment-details/${params.id}`)
         },
         {
           path: "/giveMark/:id",
           element: <PrivateRoute><GiveMarkAssign></GiveMarkAssign></PrivateRoute>,
-          loader: ({params})=> fetch(`http://localhost:5000/submitted-assignment/${params.id}`)
+          loader: ({params})=> fetch(`https://studynest-server.vercel.app/submitted-assignment/${params.id}`)
           
         },
         {

@@ -7,7 +7,7 @@ import SubmittedAssignmentCard from "./SubmittedAssignmentCard";
 const SubmittedAssignments = () => {
     const assignments = useLoaderData();
     const [assign, setAssign] = useState(assignments)
-    const url = `http://localhost:5000/submitted-assignment`;
+    const url = `https://studynest-server.vercel.app/submitted-assignment`;
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

@@ -21,7 +21,7 @@ const UpdatedAssignment = () => {
 
         const updateAssignment = { title, desc, marks, photo, dLevel, dateValue }
         // console.log(newAssignment);
-        fetch(`http://localhost:5000/updated-assignment/${_id}`, {
+        fetch(`https://studynest-server.vercel.app/updated-assignment/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

@@ -6,7 +6,7 @@ const GiveMarkAssign = () => {
     const acceptAssignmentDetails = useLoaderData();
     const { _id, assignmentTitle,statusValue, assignmentMarks, email } = acceptAssignmentDetails;
     const handleStatus = id => {
-        fetch(`http://localhost:5000/submitted-assignment/${_id}`, {
+        fetch(`https://studynest-server.vercel.app/submitted-assignment/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -35,7 +35,7 @@ const GiveMarkAssign = () => {
 
         const markAssignment = { marks, feedback, ExamineeEmail, assigntitle, status, obtainMarks }
         console.log(markAssignment);
-        fetch('http://localhost:5000/marked-assignment', {
+        fetch('https://studynest-server.vercel.app/marked-assignment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

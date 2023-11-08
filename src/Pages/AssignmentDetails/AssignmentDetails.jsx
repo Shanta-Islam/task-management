@@ -23,7 +23,7 @@ const AssignmentDetails = () => {
         const assignmentMarks = marks;
         const table = { assignmentPdf, note, statusValue,email,examineeName, assignmentTitle, assignmentMarks }
         // console.log(table);
-        fetch('http://localhost:5000/submitted-assignment', {
+        fetch('https://studynest-server.vercel.app/submitted-assignment', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

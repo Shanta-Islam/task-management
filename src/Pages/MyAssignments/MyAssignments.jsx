@@ -5,9 +5,9 @@ import { Toaster } from "react-hot-toast";
 const MyAssignments = () => {
     const { user } = useContext(AuthContext);
     const [markedAssign, setMarkedAssign] = useState([]);
-    const url = `http://localhost:5000/marked-assignment?email=${user?.email}`;
+    const url = `https://studynest-server.vercel.app/marked-assignment?email=${user?.email}`;
     useEffect(() => {
-        fetch(url)
+        fetch(url, {credentials: 'include'})
             .then(res => res.json())
             .then(data => setMarkedAssign(data));
     }, [url])
