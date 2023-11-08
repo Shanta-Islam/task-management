@@ -2,11 +2,12 @@ import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const UpdatedAssignment = () => {
     // const { user } = useContext(AuthContext);
     const assignment = useLoaderData();
+    const navigate = useNavigate();
     const {_id, title, desc, marks, photo,dLevel, dateValue} = assignment;
     const handleUpdateAssignment = event => {
         event.preventDefault();
@@ -32,6 +33,7 @@ const UpdatedAssignment = () => {
                 console.log(data);
                 if(data.modifiedCount>0){
                     toast.success('Assignment Updated Successfully')
+                    navigate("/all-assignments")
                 }
                 
 
