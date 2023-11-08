@@ -1,7 +1,10 @@
-
+import { pdfjs } from 'react-pdf';
 import toast from "react-hot-toast";
 import { useLoaderData } from "react-router-dom";
-
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+    'pdfjs-dist/build/pdf.worker.min.js',
+    import.meta.url,
+  ).toString();
 const GiveMarkAssign = () => {
     const acceptAssignmentDetails = useLoaderData();
     const { _id, assignmentTitle,statusValue, assignmentMarks, email } = acceptAssignmentDetails;
@@ -55,7 +58,7 @@ const GiveMarkAssign = () => {
 
     return (
         <div className="p-20">
-            <p>Google drive link: {acceptAssignmentDetails.assignmentPdf}</p>
+            <p>Google drive link:  {acceptAssignmentDetails.assignmentPdf}</p>
             <p>Note by Examinee: {acceptAssignmentDetails.note}</p>
             <form onSubmit={handleMarkAssignment}>
                 <div className="md:flex mb-8 mt-5">
