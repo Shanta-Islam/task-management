@@ -47,7 +47,7 @@ const CreateAssignments = () => {
                             <span className="label-text">Assignment Title</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="title" placeholder="Title" className="input input-bordered w-full" />
+                            <input type="text" name="title" placeholder="Title" className="input input-bordered w-full" required/>
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -55,7 +55,7 @@ const CreateAssignments = () => {
                             <span className="label-text">Assignment Description</span>
                         </label>
                         <label className="input-group">
-                            <textarea name="desc" className="textarea textarea-bordered w-full" placeholder="Description"></textarea>
+                            <textarea name="desc" className="textarea textarea-bordered w-full" placeholder="Description" required></textarea>
                         </label>
                     </div>
                 </div>
@@ -66,7 +66,7 @@ const CreateAssignments = () => {
                             <span className="label-text">Marks</span>
                         </label>
                         <label className="input-group">
-                            <input type="number" name="marks" placeholder="Marks" className="input input-bordered w-full" />
+                            <input type="number" name="marks" placeholder="Marks" className="input input-bordered w-full" required/>
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -74,7 +74,7 @@ const CreateAssignments = () => {
                             <span className="label-text">Thumbnail Image</span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="photo" placeholder="Image URL" className="input input-bordered w-full" />
+                            <input type="text" name="photo" placeholder="Image URL" className="input input-bordered w-full" required />
                         </label>
                     </div>
                 </div>
@@ -85,7 +85,7 @@ const CreateAssignments = () => {
                             <span className="label-text">Difficulty Level</span>
                         </label>
                         <label className="input-group">
-                            <select className="select select-bordered w-full" name='dLevel'>
+                            <select className="select select-bordered w-full" name='dLevel' required>
                                 <option value="Easy">Easy</option>
                                 <option value="Medium">Medium</option>
                                 <option value="Hard">Hard</option>
@@ -97,7 +97,7 @@ const CreateAssignments = () => {
                             <span className="label-text">Due Date</span>
                         </label>
                         <label className="input-group">
-                            <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} name="dateValue" className='input input-bordered w-full' />
+                            <DatePicker  selected={startDate} onChange={(date) => setStartDate(date)} name="dateValue" className='input input-bordered w-full' required />
                         </label>
                     </div>
                 </div>
