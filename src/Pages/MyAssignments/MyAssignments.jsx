@@ -4,12 +4,16 @@ import { Toaster } from "react-hot-toast";
 
 const MyAssignments = () => {
     const { user } = useContext(AuthContext);
+    const [loading, setLoading] = useState(true);
     const [markedAssign, setMarkedAssign] = useState([]);
     const url = `https://studynest-server.vercel.app/marked-assignment?email=${user?.email}`;
     useEffect(() => {
-        fetch(url, {credentials: 'include'})
+        fetch(url, { credentials: 'include' })
             .then(res => res.json())
-            .then(data => setMarkedAssign(data));
+            .then(data => {
+                setMarkedAssign(data);
+                setLoading(false)
+            });
     }, [url])
     return (
         <div className="p-20">
@@ -27,19 +31,30 @@ const MyAssignments = () => {
                             <th>Feedback</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        {
-                            markedAssign && markedAssign.map(item => <tr key={item?._id}>
+                    {
+                        !loading ?
+                            <tbody>
+                                {
+                                    markedAssign && markedAssign.map(item => <tr key={item?._id}>
 
-                                <td>{item?.assigntitle}</td>
-                                <td>{item?.status==="Pending"? "Completed": ""}</td>
-                                <td>{item?.marks}</td>
-                                <td>{item?.obtainMarks}</td>
-                                <td>{item?.feedback}</td>
-                            </tr>)
-                        }
+                                        <td>{item?.assigntitle}</td>
+                                        <td>{item?.status === "Pending" ? "Completed" : ""}</td>
+                                        <td>{item?.marks}</td>
+                                        <td>{item?.obtainMarks}</td>
+                                        <td>{item?.feedback}</td>
+                                    </tr>)
+                                }
 
-                    </tbody>
+                            </tbody>
+                            :
+                            <div className="flex items-center">
+                                <span
+                                    className={loading ? 'block loading loading-spinner text-primary loading-xl items-center' : 'hidden'}
+                                    aria-label="Extra large spinner example"
+                                ></span>
+                                <span />
+                            </div>
+                    }
                 </table>
             </div>
             <Toaster />
