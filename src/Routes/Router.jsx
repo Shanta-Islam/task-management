@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         {
           path: "/all-assignments",
           element: <Assignments></Assignments>,
-          loader: ()=> fetch('https://studynest-server.vercel.app/assignments'),  
+          // loader: ()=> fetch('https://studynest-server.vercel.appassignments'),  
         },
         {
           path: "/create-assignments",
