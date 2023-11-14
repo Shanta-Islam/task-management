@@ -51,7 +51,7 @@ const GiveMarkAssign = () => {
             })
 
     }
-
+ 
     return (
         <div className="p-20">
          <iframe src={acceptAssignmentDetails.assignmentPdf} width='100%' height='400px' />

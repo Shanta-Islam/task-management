@@ -3,6 +3,7 @@ import toast, { Toaster } from "react-hot-toast";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../../context/AuthProvider";
+
 const CreateAssignments = () => {
     const { user } = useContext(AuthContext);
     const handleCreateAssignment = event => {
@@ -18,7 +19,7 @@ const CreateAssignments = () => {
 
         const newAssignment = { title, desc, marks, photo, dLevel, dateValue, email }
         // console.log(newAssignment);
-        fetch('https://studynest-server.vercel.app/assignments', {
+        fetch(`https://studynest-server.vercel.app/assignments`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -33,7 +34,7 @@ const CreateAssignments = () => {
                 }
                 form.reset();
             })
-
+        
     }
     const [startDate, setStartDate] = useState(new Date());
     return (

@@ -9,25 +9,27 @@ import { AuthContext } from "../../context/AuthProvider";
 const Assignments = () => {
     const { user } = useContext(AuthContext);
     const [assignments, setAssignments] = useState([]);
+    const [level, setLevel] = useState('');
+    // console.log(assign);
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(0);
     const [count, setCount] = useState({});
     const [itemPerPage, SetItemPerPage] = useState(6);
     useEffect(() => {
-        fetch(`https://studynest-server.vercel.app/assignments?page=${currentPage}&size=${itemPerPage}`)
+        fetch(`https://studynest-server.vercel.app/assignments?page=${currentPage}&size=${itemPerPage}&&dLevel=${level}`)
             .then(res => res.json())
             .then(data => {
                 setAssignments(data);
                 setLoading(false);
             })
-    }, [currentPage, itemPerPage])
+    }, [currentPage, itemPerPage,level])
    
     const numsOfPage = Math.ceil(count / itemPerPage);
     const pages = [];
     for (let i = 0; i < numsOfPage; i++) {
         pages.push(i);
     }
-    console.log(pages);
+    // console.log(pages);
     useEffect(() => {
         fetch('https://studynest-server.vercel.app/assignmentsCount')
             .then(res => res.json())
@@ -48,21 +50,26 @@ const Assignments = () => {
             setCurrentPage(currentPage + 1);
         }
     }
-    const handleDifficultyLevel = (e) => {
-        e.preventDefault();
-        let arr = [];
-        let value = e.target.value;
+    // const handleDifficultyLevel = (e) => {
+    //     e.preventDefault();
+    //     let arr = [];
+    //     let value = e.target.value;
 
-        assignments.filter((singleAssign) => {
-            if (singleAssign.dLevel == value) {
-                arr.push(singleAssign);
-                return arr;
-            }
-            setAssignments(arr);
-        })
+    //     assignments.filter((singleAssign) => {
+    //         if (singleAssign.dLevel == value) {
+    //             arr.push(singleAssign);
+    //             return arr;
+
+    //         }
+            
+    //         setAssign(arr);
+           
+    //     })
 
 
-    }
+    // }
+    // console.log(assign);
+    console.log(level);
     const handleDelete = (id) => {
         console.log(id)
         fetch(`https://studynest-server.vercel.app/delete-assignment/${id}?email=${user?.email}`, {
@@ -87,9 +94,10 @@ const Assignments = () => {
     }
     return (
         <div className="py-28 px-5">
+            
             <div>
                 <label className="input-group">
-                    <select className="form-select border" aria-label="Default select example" onChange={handleDifficultyLevel}>
+                    <select className="form-select border" aria-label="Default select example" onChange={(e)=>setLevel(e.target.value)}>
                         <option selected>By Difficulty Level</option>
                         <option value="Easy">Easy</option>
                         <option value="Medium">Medium</option>
@@ -97,11 +105,11 @@ const Assignments = () => {
                     </select>
                 </label>
                 {
-                    !loading ?
+                    !loading?
                         <div>
                             <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5 mt-10">
                                 {
-                                    assignments.map(assignment => <AssignmentCard key={assignment._id} assignment={assignment} handleDelete={handleDelete}></AssignmentCard>)
+                                   assignments.map(assignment => <AssignmentCard key={assignment._id} assignment={assignment} handleDelete={handleDelete}></AssignmentCard>)
                                 }
                             </div>
                             <div className="mt-10 flex justify-center">
