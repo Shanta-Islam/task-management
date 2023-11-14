@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { Toaster } from "react-hot-toast";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import SubmittedAssignmentCard from "./SubmittedAssignmentCard";
 
 

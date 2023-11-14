@@ -1,8 +1,15 @@
-import { Toaster } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const SubmittedAssignmentCard = ({singleA}) => {
+    const {user} =useContext(AuthContext);
+    console.log(singleA)
+    const handleOwnMark = ()=>{
+        toast.error('You can not mark your own assignment')
+    }
     return (
         <div>
             <div className="card card-compact lg:w-96 bg-base-100 shadow-xl border mx-auto ">
@@ -11,8 +18,14 @@ const SubmittedAssignmentCard = ({singleA}) => {
                     <p>Assignment Marks: {singleA?.assignmentMarks}</p>
                     <p>Examinee Name: {singleA?.examineeName}</p>
                     <div className="card-actions justify-end">
-                        <Link to={`/giveMark/${singleA?._id}`}><button
+                        {user?.email === singleA.email ?
+                           
+                            <button
+                            className="btn" onClick={handleOwnMark}>Give Mark</button>
+                            :
+                             <Link to={`/giveMark/${singleA?._id}`}><button
                             className="btn">Give Mark</button></Link>
+                        }
                     </div>
                 </div>
             </div >
