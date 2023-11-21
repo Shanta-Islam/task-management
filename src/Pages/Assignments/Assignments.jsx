@@ -115,7 +115,7 @@ const Assignments = () => {
                             <div className="mt-10 flex justify-center">
                                 <button className="btn" onClick={handlePrevPage}>Prev</button>
                                 {
-                                    pages.map(page => <button className={`btn ${currentPage === page && "bg-[#164863] btn text-white"}`} onClick={() => setCurrentPage(page)} key={page}>{page}</button>)
+                                    pages.map(page => <button className={`btn ${currentPage === page && "bg-[#7B67F6] btn text-white"}`} onClick={() => setCurrentPage(page)} key={page}>{page}</button>)
                                 }
                                 <button className="btn" onClick={handleNextPage}>Next</button>
                                 <select value={itemPerPage} onChange={handleItemPerPage} name="" id="">

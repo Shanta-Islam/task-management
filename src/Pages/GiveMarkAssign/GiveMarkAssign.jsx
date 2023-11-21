@@ -76,7 +76,7 @@ const GiveMarkAssign = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" onClick={()=>handleStatus(_id)} value="Submit" className="btn btn-block" />
+                <input type="submit" onClick={()=>handleStatus(_id)} value="Submit" className="btn btn-block bg-[#7B67F6] text-white" />
             </form>
         </div>
     );

@@ -49,9 +49,9 @@ const AssignmentDetails = () => {
                     <h2 className="card-title">{singleAssignment.title}</h2>
                     <p>{singleAssignment.desc}</p>
                     <p>Marks: {singleAssignment.marks}</p>
-                    <div className="card-actions justify-end">
+                    <div className="card-actions justify-end ">
                         {/* <button onClick={() => handleTakeAssignment(singleAssignment)} className="btn">Take Assignment</button> */}
-                        <button onClick={() => document.getElementById('takeAssign').showModal()} className="btn">Take Assignment</button>
+                        <button onClick={() => document.getElementById('takeAssign').showModal()} className="btn bg-[#7B67F6] text-white">Take Assignment</button>
                     </div>
 
                 </div>
@@ -80,8 +80,8 @@ const AssignmentDetails = () => {
 
 
 
-                        <input type="submit" value="Submit" className="btn btn-block mt-5" />
-                        {/* <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button> */}
+                        <input type="submit" value="Submit" className="btn btn-block bg-[#7B67F6] text-white mt-5" />
+                        
                     </form>
                     {/* <button className="btn">Close</button> */}
                 </div>

@@ -107,7 +107,7 @@ const UpdatedAssignment = () => {
                     </div>
                 </div>
 
-                <input type="submit" value="Update Assignment" className="btn btn-block" />
+                <input type="submit" value="Update Assignment" className="btn btn-block bg-[#7B67F6] text-white" />
 
             </form>
             <Toaster />

@@ -103,7 +103,7 @@ const CreateAssignments = () => {
                     </div>
                 </div>
 
-                <input type="submit" value="Create Assignment" className="btn btn-block" />
+                <input type="submit" value="Create Assignment" className="btn btn-block bg-[#7B67F6] text-white" />
 
             </form>
             <Toaster />

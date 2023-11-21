@@ -36,10 +36,20 @@ const Header = () => {
                 :
                 <li><NavLink to="/all-assignments" className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "hover:bg-cyan-600 bg-cyan-600 hover:text-white text-white px-5 py-2 text-md rounded" : "hover:bg-cyan-600 hover:text-white text-white px-5  py-2 mx-2 text-md rounded"}>Assignments</NavLink></li>
-               
+
         }
     </>
+    const [headerColor, setHeaderColor] = useState("")
 
+    const listenScrollEvent = () => {
+        window.scrollY > 10
+            ? setHeaderColor('linear-gradient(to right, #a855f7, #3b82f6)')
+            : setHeaderColor("")
+    }
+    // Similar to componentDidMount and componentDidUpdate:
+    useEffect(() => {
+        window.addEventListener("scroll", listenScrollEvent)
+    })
 
     // const [theme, setTheme] = useState(
     //     localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
@@ -68,7 +78,7 @@ const Header = () => {
     };
 
     return (
-        <div className="navbar bg-[#164863] fixed top-0 z-50">
+        <div className="navbar fixed top-0 z-50 bg-gradient-to-r from-purple-500 to-blue-500"  style={{ background: headerColor }}>
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn text-white btn-ghost xl:hidden">

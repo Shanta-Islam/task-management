@@ -10,9 +10,9 @@ const AssignmentCard = ({ assignment, handleDelete }) => {
                 <p>Assignment Marks: {assignment.marks}</p>
                 <p>Difficulty Level: {assignment.dLevel}</p>
                 <div className="card-actions justify-end">
-                    <button onClick={() => handleDelete(assignment._id)} className="btn">Delete</button>
-                    <Link to={`/assignment-details/${assignment._id}`} className='btn'>View</Link>
-                    <Link to={`/updated-assignment/${assignment._id}`} className="btn">Update</Link>
+                    <button onClick={() => handleDelete(assignment._id)} className="btn bg-red-400">Delete</button>
+                    <Link to={`/assignment-details/${assignment._id}`} className='btn bg-[#7B67F6] text-white'>View</Link>
+                    <Link to={`/updated-assignment/${assignment._id}`} className="btn bg-[#7B67F6] text-white">Update</Link>
                 </div>
             </div>
         </div >

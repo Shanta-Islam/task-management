@@ -24,7 +24,7 @@ const SubmittedAssignmentCard = ({singleA}) => {
                             className="btn" onClick={handleOwnMark}>Give Mark</button>
                             :
                              <Link to={`/giveMark/${singleA?._id}`}><button
-                            className="btn">Give Mark</button></Link>
+                            className="btn bg-[#7B67F6] text-white">Give Mark</button></Link>
                         }
                     </div>
                 </div>
