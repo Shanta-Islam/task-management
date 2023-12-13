@@ -1,4 +1,5 @@
 import Banner from "./Banner";
+import ContactUs from "./ContactUs";
 import Features from "./Features";
 import Fqa from "./Fqa";
 import Reviews from "./Reviews";
@@ -10,6 +11,7 @@ const Home = () => {
             <Features></Features>
             <Fqa></Fqa>
             <Reviews></Reviews>
+            <ContactUs></ContactUs>
         </div>
     );
 };
