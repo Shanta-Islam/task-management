@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       {
         path: 'updateTask/:id',
         element: <UpdateTask></UpdateTask>,
-        loader: ({params})=> fetch(`http://localhost:5000/task-details/${params.id}`)
+        loader: ({params})=> fetch(`https://studynest-server.vercel.app/task-details/${params.id}`)
       },
       
     ]

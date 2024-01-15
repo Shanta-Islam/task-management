@@ -22,7 +22,7 @@ const UpdateTask = () => {
         const email = user?.email;
 
         const newTask = { title, desc, dateValue, email }
-        fetch(`http://localhost:5000/update-task/${_id}`, {
+        fetch(`https://studynest-server.vercel.app/update-task/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

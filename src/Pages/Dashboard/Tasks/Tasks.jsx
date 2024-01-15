@@ -10,7 +10,7 @@ const Tasks = () => {
     const [loading, setLoading] = useState(true);
     const [status, setStatus] = useState('');
     useEffect(() => {
-        axios(`http://localhost:5000/tasks?status=${status}`)
+        axios(`https://studynest-server.vercel.app/tasks?status=${status}`)
             .then(res => {
                 setTasks(res.data)
                 setLoading(false)
@@ -18,7 +18,7 @@ const Tasks = () => {
             )
     }, [status])
     const handleDelete = (id) => {
-        fetch(`http://localhost:5000/delete-task/${id}?email=${user?.email}`, {
+        fetch(`https://studynest-server.vercel.app/delete-task/${id}?email=${user?.email}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -39,7 +39,7 @@ const Tasks = () => {
             })
     }
     const handleCompleted = (id) => {
-        fetch(`http://localhost:5000/completed-task/${id}`, {
+        fetch(`https://studynest-server.vercel.app/completed-task/${id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -55,7 +55,7 @@ const Tasks = () => {
         <div className="h-screen p-2">
             <label className="input-group">
                 <select className="form-select border" aria-label="Default select example" onChange={(e) => setStatus(e.target.value)}>
-                    <option selected>By Status</option>
+                    <option selected value="">All</option>
                     <option value="active">Active</option>
                     <option value="completed">Completed</option>
                 </select>

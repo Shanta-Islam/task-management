@@ -18,7 +18,7 @@ const AddTask = () => {
         const status = "active";
 
         const newTask = { title, desc, dateValue, email, status }
-        fetch(`http://localhost:5000/task`, {
+        fetch(`https://studynest-server.vercel.app/task`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

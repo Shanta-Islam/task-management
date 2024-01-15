@@ -7,12 +7,12 @@ const UserHome = () => {
     const [tasks, setTasks] = useState([]);
     const [completedTasks, setCompletedTasks] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/tasks')
+        fetch('https://studynest-server.vercel.app/tasks')
             .then(res => res.json())
             .then(data => setTasks(data))
     }, [])
     useEffect(() => {
-        fetch(`http://localhost:5000/completed-tasks/${user?.email}`)
+        fetch(`https://studynest-server.vercel.app/completed-tasks/${user?.email}`)
             .then(res => res.json())
             .then(data => setCompletedTasks(data))
     }, [user?.email])
