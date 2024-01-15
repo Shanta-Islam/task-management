@@ -2,8 +2,9 @@
 import { useContext } from "react";
 import toast, { Toaster } from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../context/AuthProvider";
 import { GoogleAuthProvider } from "firebase/auth";
+import image from '../../assets/img.png'
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
 
@@ -25,7 +26,7 @@ const Login = () => {
                     toast.error("password doesn't match");
                 }
                 toast.success('Successfully Sign In')
-                navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/dashboard');
             })
             .then(error => {
                 toast.error(error.message)
@@ -36,16 +37,17 @@ const Login = () => {
             .then(result => {
                 console.log(result.user);
                 toast.success('Successfully Sign In')
-                navigate(location?.state ? location.state : '/');
+                navigate(location?.state ? location.state : '/dashboard/userhome');
             })
             .catch(error => console.log(error));
     }
+
 
     return (
         <div className="hero min-h-screen">
             <div className="hero-content flex-col lg:flex-row lg:gap-40">
                 <div>
-                    <img src="https://i.ibb.co/CzprGwq/login-3305943-2757111.jpg" alt="" width={700} />
+                    <img src={image} alt="" width={700} />
                 </div>
                 <div className="flex-shrink-0 w-full max-w-lg shadow-xl p-5">
                     <h2 className="text-2xl text-center">Please Login</h2>
