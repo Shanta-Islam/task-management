@@ -26,7 +26,7 @@ const Login = () => {
                     toast.error("password doesn't match");
                 }
                 toast.success('Successfully Sign In')
-                navigate(location?.state ? location.state : '/dashboard');
+                navigate(location?.state ? location.state : '/dashboard/userhome');
             })
             .then(error => {
                 toast.error(error.message)
