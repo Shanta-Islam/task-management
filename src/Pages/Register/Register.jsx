@@ -3,13 +3,11 @@ import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
 import image from '../../assets/img.png'
-import { GoogleAuthProvider } from "firebase/auth";
 import { AuthContext } from "../../context/AuthProvider";
 
 const Register = () => {
     const { providerLogin, createUser, updateUserProfile, setLoading } = useContext(AuthContext);
     const navigate = useNavigate();
-    const googleProvider = new GoogleAuthProvider();
     const handleRegister = e => {
         e.preventDefault();
         const form = new FormData(e.currentTarget);
@@ -34,7 +32,7 @@ const Register = () => {
             .then(result => {
                 console.log(result.user);
                 const user = { email };
-                fetch('https://eshophub-server-shanta-islam.vercel.app/user', {
+                fetch('https://studynest-server.vercel.app/user', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
