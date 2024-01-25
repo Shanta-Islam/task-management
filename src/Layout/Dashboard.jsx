@@ -30,18 +30,19 @@ const Dashboard = () => {
                             className={`normal-case flex gap-2 text-xl lg:text-3xl font-medium text-white duration-200 ${!open && "scale-0"
                                 }`}
                         >
-                            Taskia
+                            Task
                         </h1>
                     </div>
                     <ul className="pt-6">
 
-                        <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-light-white text-white text-base items-center gap-x-4 
+                        <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-gray-500 text-base items-center gap-x-4 
                                         } `}>
                             <NavLink to="/dashboard/userhome" className=' flex items-center gap-2'>
 
                                 <HiHome></HiHome><span className={`${!open && "hidden"} origin-left duration-200`}>Dashboard</span></NavLink>
                         </li>
-                        <li>
+                        <li className={`flex  rounded-md p-2 cursor-pointer hover:bg-gray-500 text-base items-center gap-x-4 
+                                        } `}>
                             <NavLink to="/dashboard/tasks" className=' flex items-center gap-2'>
                                 <HiListBullet></HiListBullet>
                                 <span className={`${!open && "hidden"} origin-left duration-200`}>Tasks</span></NavLink>
